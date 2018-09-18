@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CreandoUsuarioComponent } from './creando-usuario/creando-usuario.component';
+import {UsuariosService} from './usuarios/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CreandoUsuarioComponent } from './creando-usuario/creando-usuario.compo
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

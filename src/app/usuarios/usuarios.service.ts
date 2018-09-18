@@ -12,7 +12,13 @@ export class UsuariosService {
   constructor(private http:HttpClient) { }
 
   public getUsers():Observable<UsuarioModel[]>{
+
   	return	this.http.get<UsuarioModel[]>("http://localhost:8080/getUsers");
   	
+  }
+   public deleteR(user:UsuarioModel):void{
+    this.http.post("http://localhost:8080/deleteUsers",JSON.stringify(user)).subscribe();
+  		
+  		
   }
 }

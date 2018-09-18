@@ -17,20 +17,25 @@ export class CreandoUsuarioComponent implements OnInit {
 	private isvalid:boolean=true;
 	private mensaje:String="";
   constructor(private creandoUsuarioService:CreandoUsuarioService, private router:Router) { 
-  		this.user=new UsuarioModel();
+  		
+     if(sessionStorage.getItem("user")){
+        this.user=JSON.parse(sessionStorage.getItem("user"));
+      }else{
+          this.user=new UsuarioModel();
+      }
+  
    }
 
   ngOnInit() {
   }
 
   public saveOrUpdate():void{
-      this.isvalid=this.creandoUsuarioService.validate
-      (this.user);
+      this.isvalid=this.creandoUsuarioService.validate(this.user);
 
       if(this.isvalid){
             this.creandoUsuarioService.saveOrUpdate(this.user).subscribe(res=>{
                 if(res.responseCode==OK){
-                  this.router.navigate(['/UsuarioComponent']);
+                  this.router.navigate(['/usuarioComponent']);
                 }else{
                   this.mensaje=res.mensaje;
                   this.isvalid=false;
@@ -39,5 +44,6 @@ export class CreandoUsuarioComponent implements OnInit {
       }else{
         this.mensaje="los campos en el formulario son obligatorios";
       }
+      sessionStorage.clear();
   }
 }

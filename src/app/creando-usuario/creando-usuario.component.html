@@ -31,7 +31,12 @@
     <input type="text" class="form-control" name="direccion" id="direccion" [(ngModel)]="user.direccion" placeholder="Ingrese Su Direccion">
   </div>
   </div>
- 
+ <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" (click)="saveOrUpdate()" class="btn btn-default btn-save">Guardar</button>
+  </div>
+   
+ </div>
   
-  <button type="submit" (click)="saveOrUpdate()" class="btn btn-primary" btn-save>Guardar</button>
+  
 </form>

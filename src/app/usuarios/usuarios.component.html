@@ -9,6 +9,7 @@
       <th scope="col">Segundo Apellido</th>
       <th scope="col">Telefono</th>
       <th scope="col">Direccion</th>
+      <th scope="col">Accion</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,13 @@
       <td>{{item.sApellido}}</td>
       <td>{{item.telefono}}</td>
       <td>{{item.direccion}}</td>
+      <td><img src="../../assets/pencil_small.ico" class="editIcon" (click)="edit(item)">
+         <a (click)="deleteR(item)"><input type="image" src="../../assets/delete.png" class="editIcon"  >  </a>
+         <!--<div class="editIcon" (click)="delete(item)">
+    <i class="far fa-trash-alt"></i>
+  </div>  -->  
+
+      </td>
     </tr>
     
   </tbody>
